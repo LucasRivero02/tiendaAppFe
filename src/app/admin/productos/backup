@@ -1,0 +1,63 @@
+   <!-- <table>
+      <tr>
+         <td *ngIf="archivo_1">
+            <div class="card border-primary text-center" style="width: 100%;">
+               <img class="card-img-top" [src]="archivo_1" alt="" height="25%" width="25%">
+               <div class="card-body">
+                  <div class="btn-group">
+                     <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                     <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                   </div>
+               </div>
+             </div>
+         </td>
+         <td *ngIf="archivo_2">
+            <div class="card border-primary text-center" style="width: 100%;">
+               <img class="card-img-top" [src]="archivo_2" alt="" height="25%" width="25%">
+               <div class="card-body">
+                 <a href="#" class="btn btn-primary">Eliminar</a>
+               </div>
+             </div>
+         </td>
+         <td *ngIf="archivo_3">
+            <div class="card border-primary text-center" style="width: 100%;">
+               <img class="card-img-top" [src]="archivo_3" alt="" height="25%" width="25%">
+               <div class="card-body">
+                 <a href="#" class="btn btn-primary">Eliminar</a>
+               </div>
+             </div>
+         </td>
+      </tr> -->
+      <!-- <tr *ngIf="archivo_2">
+         <div class="card" style="width: 18rem;">
+            <img class="card-img-top" [src]="archivo_2" alt="" height="25%" width="25%">
+            <div class="card-body">
+              <a href="#" class="btn btn-primary">Eliminar</a>
+            </div>
+          </div>
+      </tr>
+      <tr *ngIf="archivo_3">
+         <div class="card" style="width: 18rem;">
+            <img class="card-img-top" [src]="archivo_3" alt="" height="25%" width="25%">
+            <div class="card-body">
+              <a href="#" class="btn btn-primary">Eliminar</a>
+            </div>
+          </div>
+      </tr>
+      <tr *ngIf="archivo_4">
+         <div class="card" style="width: 18rem;">
+            <img class="card-img-top" [src]="archivo_4" alt="" height="25%" width="25%">
+            <div class="card-body">
+              <a href="#" class="btn btn-primary">Eliminar</a>
+            </div>
+          </div>
+      </tr>
+      <tr *ngIf="archivo_5">
+         <div class="card" style="width: 18rem;">
+            <img class="card-img-top" [src]="archivo_5" alt="" height="25%" width="25%">
+            <div class="card-body">
+              <a href="#" class="btn btn-primary">Eliminar</a>
+            </div>
+          </div>
+      </tr> 
+   </table> -->

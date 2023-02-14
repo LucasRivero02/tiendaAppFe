@@ -1,0 +1,15 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3 col-md-6 mb-4" *ngFor="let item of productos">
+      <div class="form card" >
+        <a title="Los Tejos" href="http://www.lostejos.com"><img src="{{item.archivo_1}}" class="card-img-top" width="100" height="100" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-text">{{item.descripcion}}</h5>
+            <h4 class="card-text">$ {{item.precio}}</h4>
+            <a href="#" class="btn btn-primary">Agregar al carrito</a>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

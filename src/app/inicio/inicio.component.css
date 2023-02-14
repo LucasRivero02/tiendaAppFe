@@ -1,0 +1,15 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+.navbar{
+   position: relative;
+   color:white;
+   font-family: "Roboto", sans-serif;
+   outline: 0;
+   text-align: center;
+   border: 0;
+   margin: 0 auto 100px;
+   padding: 35px;
+   text-align: center;
+}
+#izquierda{
+   text-align:right;
+}

@@ -1,0 +1,340 @@
+<app-header></app-header>
+<div class="container">
+  <br />
+  <h3>ABM de productos</h3>
+  <hr />
+  <br />
+  <div class="row">
+    <div class="col">
+      <!-- <button class="btn btn-primary" routerLink="/admin/productos">
+        Nuevo Producto
+      </button> -->
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        Nuevo Producto
+      </button>
+    </div>
+
+    <div class="col">
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Buscar"
+        aria-label="Buscar"
+        name="searchText"
+        [(ngModel)]="searchText"
+      />
+    </div>
+  </div>
+
+  <hr />
+  <br />
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="col-1">Descripcion</th>
+        <th class="col-3">Rubro</th>
+        <th class="col-5">Precio</th>
+        <th class="col-7">Imagen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of productos | filter : searchText">
+        <td style="visibility: collapse; display: none">{{ item._id }}</td>
+        <td class="col-1">{{ item.descripcion }}</td>
+        <td class="col-3">{{ item.descripcion }}</td>
+        <td class="col-5">$ {{ item.precio }}</td>
+        <td class="col-7">
+          <img src="{{ item.archivo_1 }}" width="30%" height="30%" alt="..." />
+        </td>
+        <td class="col-8">
+          <button
+            (click)="actualizarProducto(item._id)"
+            class="btn btn-secondary"
+          >
+            Editar
+          </button>
+        </td>
+        <td class="col-9">
+          <button
+            (click)="borrarProducto(item._id)"
+            type="submit"
+            class="btn btn-danger"
+          >
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            Ingresar datos del producto
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+            <body class="text-center">
+              <form class="form-new-article">
+                <img
+                  class="mb-4"
+                  src="../../../assets/images/imagen1.jpg"
+                  alt=""
+                  width="72"
+                  height="72"
+                />
+                <!-- <h1 class="h3 mb-3 font-weight-normal"></h1> -->
+
+                <input
+                  type="text"
+                  [(ngModel)]="descripcion"
+                  name="descripcion"
+                  id="inputDescripcion"
+                  class="form-control"
+                  placeholder="Descripcion"
+                  required
+                  autofocus
+                />
+
+                <input
+                  type="number"
+                  [(ngModel)]="precio"
+                  name="precio"
+                  id="inputPrecio"
+                  class="form-control"
+                  placeholder="Precio"
+                  required
+                  style="margin-top: 10px"
+                />
+                <select
+                  class="form-control"
+                  id="inlineFormCustomSelect"
+                  required
+                  style="margin-top: 10px"
+                >
+                  <option selected disabled>Categorias...</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+                <!-- <div *ngIf="!archivo_1">No hay imagenes para mostrar</div> -->
+                <div
+                  class="file-select"
+                  style="width: 100px; margin-top: 10px"
+                  id="src-file-principal"
+                >
+                  <input
+                    (change)="capturarFileOrig($event)"
+                    type="file"
+                    name="Imagen"
+                    required
+                    class="form-control"
+                    placeholder="Imagen"
+                  />
+                </div>
+                <table style="margin-top: 10px">
+                  <tr *ngIf="archivo_1">
+                    <td class="border border-dark">
+                      <img
+                        [src]="archivo_1"
+                        alt=""
+                        height="25%"
+                        width="25%"
+                        name="archivo_1"
+                      />
+                    </td>
+                    <td>
+                      <div class="file-select" id="src-file">
+                        <input
+                          (change)="capturarFile($event, 1)"
+                          type="file"
+                          name="Imagen"
+                          class="form-control"
+                          aria-label="Archivo"
+                        />
+                      </div>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-danger btn-sm"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">Eliminar</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr *ngIf="archivo_2">
+                    <td>
+                      <img
+                        [src]="archivo_2"
+                        alt=""
+                        height="25%"
+                        width="25%"
+                        name="archivo_2"
+                      />
+                    </td>
+                    <td>
+                      <div class="file-select" id="src-file">
+                        <input
+                          (change)="capturarFile($event, 2)"
+                          type="file"
+                          name="Imagen"
+                          required
+                          class="form-control"
+                          placeholder="Imagen"
+                        />
+                      </div>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-danger btn-sm"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">Eliminar</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr *ngIf="archivo_3">
+                    <td>
+                      <img
+                        [src]="archivo_3"
+                        alt=""
+                        height="25%"
+                        width="25%"
+                        name="archivo_3"
+                      />
+                    </td>
+                    <td>
+                      <div class="file-select" id="src-file">
+                        <input
+                          (change)="capturarFile($event, 3)"
+                          type="file"
+                          name="Imagen"
+                          required
+                          class="form-control"
+                          placeholder="Imagen"
+                        />
+                      </div>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-danger btn-sm"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">Eliminar</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr *ngIf="archivo_4">
+                    <td>
+                      <img
+                        [src]="archivo_4"
+                        alt=""
+                        height="25%"
+                        width="25%"
+                        name="archivo_4"
+                      />
+                    </td>
+                    <td>
+                      <div class="file-select" id="src-file">
+                        <input
+                          (change)="capturarFile($event, 4)"
+                          type="file"
+                          name="Imagen"
+                          required
+                          class="form-control"
+                          placeholder="Imagen"
+                        />
+                      </div>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-danger btn-sm"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">Eliminar</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr *ngIf="archivo_5">
+                    <td>
+                      <img
+                        [src]="archivo_5"
+                        alt=""
+                        height="25%"
+                        width="25%"
+                        name="archivo_5"
+                      />
+                    </td>
+                    <td>
+                      <div class="file-select" id="src-file">
+                        <input
+                          (change)="capturarFile($event, 5)"
+                          type="file"
+                          name="Imagen"
+                          required
+                          class="form-control"
+                          placeholder="Imagen"
+                        />
+                        Cambiar Imagen
+                      </div>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-danger btn-sm"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">Eliminar</span>
+                      </button>
+                    </td>
+                  </tr>
+                </table>
+                <br />
+              </form>
+            </body>
+
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cerrar
+          </button>
+          <button
+            type="button"
+            (click)="registrarProducto()"
+            class="btn btn-primary"
+            data-bs-dismiss="modal"
+          >
+            Guardar cambios
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

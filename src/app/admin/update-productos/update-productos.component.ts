@@ -4,15 +4,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Productos } from 'src/app/contenido/class/productos';
 import { ProductosService } from '../../services/productos.service';
 import Swal from 'sweetalert2';
-import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
-import { ModalComponent } from '../modal/modal.component';
 @Component({
   selector: 'app-update-productos',
   templateUrl: './update-productos.component.html',
   styleUrls: ['./update-productos.component.css'],
 })
 export class UpdateProductosComponent implements OnInit {
-  modalRef: MdbModalRef<ModalComponent> | null = null;
   public productos: Productos;
   _id: string = '';
   archivo_1: string = '';
@@ -29,12 +26,10 @@ export class UpdateProductosComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private service: ProductosService,
     private router: Router,
-    private activatedRoute: ActivatedRoute,
-    private modalService: MdbModalService
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.openModal();
     console.log('llego aca')
     const id_entrada = <string>this.activatedRoute.snapshot.params.id;
     if (id_entrada) {
@@ -136,10 +131,4 @@ export class UpdateProductosComponent implements OnInit {
       }
       return null;
     });
-    openModal() {
-      this.modalRef = this.modalService.open(ModalComponent);
-      this.modalRef.onClose.subscribe((message: any) => {
-        console.log(message);
-      });
-    }
 }

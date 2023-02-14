@@ -14,8 +14,25 @@ export class HomeProductosComponent implements OnInit {
   imagen: string;
   searchText: any;
 
-  public productos: Productos = new Productos();
+  public productos: Productos;
+
+   updateproducto: Productos={
+     _id: '',
+     descripcion: '',
+     precio: 0,
+     archivo_1: '',
+     archivo_2: '',
+     archivo_3: '',
+     archivo_4: '',
+     archivo_5: '',
+     toLowerCase: function (): void {
+       throw new Error('Function not implemented.');
+     }
+   };
+
+
   public previsualizacion: string;
+  _id:string = '';
   archivo_1: string = '';
   archivo_2: string = '';
   archivo_3: string = '';
@@ -28,6 +45,7 @@ export class HomeProductosComponent implements OnInit {
   nombreArchivo_5: string = '';
   descripcion: string = '';
   precio: number; 
+  updateProduct: boolean = false;
   constructor(
     private contenidoService: ContenidoService,
     private sanitizer: DomSanitizer,
@@ -37,9 +55,7 @@ export class HomeProductosComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.contenidoService.getProductos().subscribe(async (data: any) => {
-      this.productos = data.response;
-    });
+    this.cargarProductos();
   }
 
   borrarProducto(id: any) {
@@ -66,10 +82,63 @@ export class HomeProductosComponent implements OnInit {
     });
   }
 
-  actualizarProducto(id:string) {
-    this.router.navigate(['/admin/update-productos/'+id]);
+  cargarProducto(id:string) {
+      this.service.getProductoById(id).subscribe(
+        async (data: any) => {
+          this.updateproducto = data.response;
+          this.updateProduct = true;
+          this.descripcion = data.response.descripcion;
+          this.precio = data.response.precio;
+          this.archivo_1 = data.response.archivo_1;
+          this.archivo_2 = data.response.archivo_2;
+          this.archivo_3 = data.response.archivo_3;
+          this.archivo_4 = data.response.archivo_4;
+          this.archivo_5 = data.response.archivo_5;
+          this._id = data.response._id;
+        },
+        (err) => console.log('error')
+      );
   } 
 
+  actualizarProducto() {
+    this.updateproducto.descripcion = this.descripcion;
+    this.updateproducto.precio = this.precio;
+    this.updateproducto.archivo_1 = this.archivo_1;
+    this.updateproducto.archivo_2 = this.archivo_2;
+    this.updateproducto.archivo_3 = this.archivo_3;
+    this.updateproducto.archivo_4 = this.archivo_4;
+    this.updateproducto.archivo_5 = this.archivo_5;
+    this.updateproducto._id = this._id;
+
+    this.service
+      .postUpdate(this._id, this.updateproducto)
+      .subscribe(
+        (data: any) => {
+          Swal.fire({
+            title: 'Actualiza Producto',
+            text: `El producto ${this.descripcion} ha sido actualizado con exito!`,
+            icon: 'success',
+            confirmButtonColor: '#4CAF50',
+          });
+          this.cargarProductos();
+          this.router.navigate(['/admin/home-productos']);
+        },
+        (err) => {
+          Swal.fire({
+            title: 'Error',
+            text: `${err.error.message}`,
+            icon: 'warning',
+            confirmButtonColor: '#4CAF50',
+          });
+        }
+      );
+  }
+
+  cargarProductos(){
+      this.contenidoService.getProductos().subscribe(async (data: any) => {
+      this.productos = data.response;
+    });
+  }
 // funciones de mensajes
   eliminoConExito(){
     Swal.fire({
@@ -83,6 +152,7 @@ export class HomeProductosComponent implements OnInit {
       }
     })
   }
+
   eliminoError(errorText:any){
     Swal.fire({
       title: 'Error',
@@ -91,9 +161,11 @@ export class HomeProductosComponent implements OnInit {
       confirmButtonColor: '#4CAF50',
     });
   }
+
   noElimino(){
     Swal.fire('No se borro nada', '', 'info');
   }
+
   registrarProducto() {
     this.service
       .postRegister({
@@ -114,6 +186,7 @@ export class HomeProductosComponent implements OnInit {
             confirmButtonColor: '#4CAF50',
           });
           this.router.navigate(['/admin/home-productos']);
+          this.ngOnInit();
         },
         (err) => {
           Swal.fire({

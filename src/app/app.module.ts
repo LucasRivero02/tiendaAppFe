@@ -20,8 +20,6 @@ import { ProductosComponent } from './admin/productos/productos.component';
 import { HomeComponent } from './admin/home/home.component';
 import { HomeProductosComponent } from './admin/home-productos/home-productos.component';
 import { UpdateProductosComponent } from './admin/update-productos/update-productos.component';
-import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
-import { ModalComponent } from './admin/modal/modal.component';
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
   { path: 'inicio', component: InicioComponent}, 
@@ -51,8 +49,7 @@ const routes: Routes = [
     ProductosComponent,
     HomeComponent,
     HomeProductosComponent,
-    UpdateProductosComponent,
-    ModalComponent
+    UpdateProductosComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +58,6 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     Ng2SearchPipeModule,
-    MdbModalModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],

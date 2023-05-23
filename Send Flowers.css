@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'Send Flowers';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/Send Flowers/Send-Flowers.eot);
+  src: local('Send Flowers'), url(../fonts/Send Flowers/Send-Flowers.eot?#iefix) format('embedded-opentype'), url(../fonts/Send Flowers/Send-Flowers.ttf) format('truetype'), url(../fonts/Send Flowers/Send-Flowers.svg#SendFlowers) format('svg'), url(../fonts/Send Flowers/Send-Flowers.woff) format('woff'), url(../fonts/Send Flowers/Send-Flowers.woff2) format('woff2');
+}
+

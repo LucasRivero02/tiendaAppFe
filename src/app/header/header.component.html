@@ -1,0 +1,36 @@
+
+<!-- Navigation -->
+  <ul class="nav justify-content-center ">
+    <div *ngIf="!loggedIn">
+      <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/login"><b>Iniciar Sesion</b></a></li>
+   </div>
+  </ul>
+<nav class="navbar navbar-expand-lg  static-top rounded-1">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="../../assets/images/LogoSample_ByTailorBrands.jpg" width="70" height="70" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto" id="navbarCustom">
+        
+        <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/inicio"><b>INICIO</b></a></li>
+        <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/inicio"><b>PRODUCTOS</b></a></li>
+        <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/inicio"><b>SHOP</b></a></li>
+        <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/inicio"><b>CONTACTO</b></a></li>
+
+        <div *ngIf="roleAdmin">
+          <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/admin/home"><b>ADMIN</b></a></li>
+        </div>
+        <div *ngIf="!loggedIn">
+           <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/login"><b>INICIAR SESION</b></a></li>
+        </div>
+        <div *ngIf="loggedIn">
+          <li class="nav-item" (click)='logout()' routerLinkActive="active"><a class="nav-link" routerLink="/inicio"><b>LOGOUT</b></a></li>
+        </div>
+      </ul>
+    </div>
+  </div>
+</nav>

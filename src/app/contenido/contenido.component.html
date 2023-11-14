@@ -1,15 +1,21 @@
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 mb-4" *ngFor="let item of productos">
-      <div class="card" >
-        <a title="Los Tejos" href="http://www.lostejos.com"><img src="{{item.archivo_1}}" class="card-img-top" width="100" alt="..."></a>
-          <div class="card-body">
-            <h5 class="card-text">{{item.descripcion}}</h5>
-            <h4 class="card-text">$ {{item.precio}}</h4>
-            <a href="#" class="btn btn-primary">Agregar al carrito</a>
-          </div>
-        </div>
+<!-- <body>
+  <div class="contenido">
+    <div class="tarjeta" *ngFor="let item of productos">
+      <img src="{{item.archivo_1}}" alt="Imagen 1">
+      <div class="descripcion">{{item.descripcion}}</div>
+      <div class="footer">${{item.precio}}</div>
     </div>
   </div>
-</div>
+</body> -->
+
+<body>
+  <div class="contenido">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-12 " *ngFor="let item of productos">
+      <div class="tarjeta">
+      <img src="{{item.archivo_1}}" alt="Imagen 1">
+      <div class="descripcion">{{item.descripcion}}</div>
+      <div class="footer">${{item.precio}}</div>
+    </div>
+    </div>
+  </div>
+</body>

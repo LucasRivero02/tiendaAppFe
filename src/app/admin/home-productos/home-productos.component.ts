@@ -25,6 +25,7 @@ export class HomeProductosComponent implements OnInit {
      archivo_3: '',
      archivo_4: '',
      archivo_5: '',
+     promocion: '',
      toLowerCase: function (): void {
        throw new Error('Function not implemented.');
      }

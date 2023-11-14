@@ -1,7 +1,7 @@
 <div class="login-page">
    <div class="form">
       <form #loginForm="ngForm" class="login-form">
-         <input type="text"     [(ngModel)]="user.email" name="email" required minlength="4" #email="ngModel" class="form-control" placeholder="email address"/>
+         <input type="text"     [(ngModel)]="user.email" name="email" required minlength="4" #email="ngModel" class="form-control fonts" placeholder="email address"/>
          <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
             <div *ngIf="email.errors?.required">
                 El email es requerido
@@ -10,7 +10,7 @@
                 El email debe tener como minimo <strong>4 caracteres</strong>
             </div>
         </div>
-         <input type="password" [(ngModel)]="user.password" name="password" required minlength="8" #password="ngModel" class="form-control" placeholder="password"/>
+         <input type="password" [(ngModel)]="user.password" name="password" required minlength="8" #password="ngModel" class="form-control fonts" placeholder="password"/>
          <div class="alert alert-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
             <div *ngIf="password.errors?.required">
                 El password es requerido
@@ -19,9 +19,12 @@
                 El password debe tener como minimo <strong>8 caracteres</strong>
             </div>
         </div>
-         <button (click)='login()' type="submit">Login</button>
-         <button type="submit" routerLink="/inicio">Cancelar</button>
-         <p class="message" routerLinkActive="active">Not registered? <a routerLink="/register">Create an account</a></p>
+
+        <div class="button-container">
+            <button class="btn btn-primary mr-2 float-right" (click)='login()' type="submit">Login</button>
+            <button class="btn btn-secondary ms-5 float-right" type="submit" routerLink="/inicio">Cancelar</button>
+         </div>
+         <p class="message" routerLinkActive="active">No está registrado? <a routerLink="/register">Crear la cuenta</a></p>
       </form>
    </div>
  </div>

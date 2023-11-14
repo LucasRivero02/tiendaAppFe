@@ -10,4 +10,5 @@ export class Productos {
    archivo_5: string;
    descripcion?: string;
    precio:number;
+   promocion: string;
 }

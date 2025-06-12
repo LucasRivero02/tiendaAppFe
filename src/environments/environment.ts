@@ -9,12 +9,6 @@ export const environment = {
   finUrlLogin: 'login',
   finUrlAltaProducto: 'producto',
   finUrlBajaProducto: 'producto',
-  //baseUrl: 'http://localhost:3000/stubs/summary/',
-  // baseUrl: '/service/summary/',
-  // token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzM2MzM2MDQsInVzZXJfbmFtZSI6Imx1Y2FzIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6Ijk4NDlhNDQyLTk3NGItNDMxZi05ZjcwLThjNzI5MDA1MjA1ZCIsImNsaWVudF9pZCI6ImFuZ3VsYXJhcHAiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.0SxAYEf3APNnjF9ivYlsA6hLCJJsG48eh2yoNuPLIH4',
-  // clientId: '94cb2839-2067-4b65-8319-a6ad09accdc6',
-  // authority: 'https://login.microsoftonline.com/naranjax/',
-  // redirectUri: 'https://resumenesnx.naranja.com',
 };
 
 /*

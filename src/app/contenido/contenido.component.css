@@ -1,50 +1,59 @@
-body {
+.producto-card {
+  border-radius: 1px;
+  transition: box-shadow 0.2s, transform 0.2s;
+  background: #fff;
+}
+.producto-card:hover {
+  box-shadow: 0 8px 32px 0 rgba(60,60,60,0.18);
+  transform: translateY(-6px) scale(1.03);
+}
+.producto-img-wrapper {
+  background: #f6f6f6;
+  border-radius: 1px 1px 0 0;
+  padding: 18px 18px 0 18px;
+  height: 220px;
   display: flex;
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Centra verticalmente */
-  margin: 0; /* Elimina el margen predeterminado del cuerpo */
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
-
-.contenido {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+.producto-img {
+  max-height: 160px;
+  object-fit: contain;
+  width: 100%;
+  transition: transform 0.3s;
 }
-
-.tarjeta {
-  width: calc(90% - 20px); /* El 20px es para el margen entre las tarjetas */
-  margin-bottom: 20px;
-  padding: 15px;
-  box-sizing: border-box;
-  border: 1px solid #ddd;
-  min-height: 400px; /* Establece una altura mínima para todas las tarjetas */
-  max-height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Alinea el contenido verticalmente */
-  position: relative; /* Agrega posición relativa para posicionar la descripción */
+.producto-card:hover .producto-img {
+  transform: scale(1.08);
 }
-
-.tarjeta img {
-  width: 100%; /* La imagen se ajusta al 100% del ancho de su contenedor */
-  max-height: 100%; /* Ajusta la altura máxima al 100% del alto de la tarjeta */
+.oferta-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  z-index: 2;
 }
-
-.descripcion {
-  position: absolute; /* Agrega posición absoluta para la descripción */
-  bottom: 0px; /* La posición inferior de la descripción estará pegada al footer */
-  left: 0;
-  right: 0;
-  margin: 10px 10px 40px 10px; /* Márgenes para separar la descripción del borde de la tarjeta */
-  font-size: 14px;
-  text-align: center;
+.precio {
+  font-size: 1.3rem;
+  color: #1a1a1a;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 4px 16px;
+  letter-spacing: 1px;
+  text-align: left;
+  width: 100%;
+  display: block;
+  background: #f3f3f3;
 }
-
-.footer {
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 0; /* Reiniciar el margen superior */
+.btn-primary {
+  border-radius: 8px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  background: #1a73e8;
+  border: none;
+}
+.btn-primary:hover {
+  background: #1558b0;
 }

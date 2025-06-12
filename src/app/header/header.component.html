@@ -1,4 +1,4 @@
-<body>
+<!-- <body>
   <header class="encabezado">
     <div class="contenido">
       <nav class="enlaces-derecha">
@@ -14,4 +14,34 @@
     <a href="#">Contacto</a>
     <a *ngIf="roleAdmin" routerLinkActive="active" routerLink="/admin/home">Admin</a>
   </nav>
-</body>
+</body> -->
+<header class="main-header bg-dark text-white py-2">
+  <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap">
+    <!-- Logo -->
+    <div class="logo">
+      <span class="fw-bold" style="font-size:2.2rem; letter-spacing:2px;">TIENDA FE</span>
+    </div>
+    <!-- Botón hamburguesa -->
+<button class="navbar-toggler d-lg-none border-0 bg-transparent text-white ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+    <!-- Menú principal y accesos rápidos -->
+    <div class="collapse navbar-collapse flex-grow-1" id="mainNavbar">
+      <nav class="main-nav d-lg-flex justify-content-center align-items-center flex-grow-1">
+        <a class="nav-link text-white px-3" href="#">Inicio</a>
+        <a class="nav-link text-white px-3" href="#">Productos</a>
+        <a class="nav-link text-white px-3" href="#">Contacto</a>
+        <a *ngIf="roleAdmin" class="nav-link text-white px-3" routerLinkActive="active" routerLink="/admin/home">Admin</a>
+      </nav>
+      <nav class="quick-access d-flex align-items-center ms-lg-3 mt-2 mt-lg-0">
+        <a *ngIf="!loggedIn" class="nav-link text-white" routerLinkActive="active" routerLink="/login">Iniciar sesión</a>
+        <a *ngIf="loggedIn" class="nav-link text-white" (click)='logout()' routerLinkActive="active" routerLink="/inicio">Cerrar sesión</a>
+        <a *ngIf="!loggedIn" class="nav-link text-white" routerLinkActive="active" routerLink="/register">Crear cuenta</a>
+      </nav>
+    </div>
+  </div>
+</header>
+<!-- Barra informativa azul -->
+<div class="w-100 bg-primary text-white text-center py-1" style="font-size:0.95rem; font-weight:500;">
+  ENVIOS GRATIS A TODO EL PAIS A PARTIR DE $150.000 &nbsp; | &nbsp; 3 CUOTAS SIN INTERÉS + ENVIOS GRATIS A TODO EL PAIS A PARTIR DE $150.000
+</div>

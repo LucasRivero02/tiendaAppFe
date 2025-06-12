@@ -22,6 +22,10 @@ import { HomeComponent } from './admin/home/home.component';
 import { HomeProductosComponent } from './admin/home-productos/home-productos.component';
 import { UpdateProductosComponent } from './admin/update-productos/update-productos.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+
+registerLocaleData(localeEs, 'es-AR');
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
   { path: 'inicio', component: InicioComponent}, 

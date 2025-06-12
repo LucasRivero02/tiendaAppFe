@@ -17,6 +17,7 @@ export class ContenidoComponent implements OnInit {
     
     this.contenidoService.getProductos().subscribe(
       async (data:any) => {
+      console.log('data.response: ', JSON.stringify(data.response))
         this.productos = data.response;        
       }
     );

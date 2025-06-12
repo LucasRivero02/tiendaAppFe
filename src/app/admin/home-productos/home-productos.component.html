@@ -14,6 +14,7 @@
         class="btn btn-primary"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
+        updateProduct="false"
       >
         Nuevo Producto
       </button>
@@ -91,6 +92,7 @@
             class="btn-close"
             data-bs-dismiss="modal"
             aria-label="Close"
+            (click)="inicializar()"
           ></button>
         </div>
         <div class="modal-body">
@@ -153,7 +155,7 @@
             </div>
             <table style="margin-top: 10px">
               <tr *ngIf="archivo_1">
-                <td class="border border-dark">
+                <td>
                   <img
                     [src]="archivo_1"
                     alt=""
@@ -321,6 +323,7 @@
             type="button"
             class="btn btn-secondary"
             data-bs-dismiss="modal"
+            (click)="inicializar()"
           >
             Cerrar
           </button>

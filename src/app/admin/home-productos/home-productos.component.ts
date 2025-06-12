@@ -25,6 +25,7 @@ export class HomeProductosComponent implements OnInit {
      archivo_3: '',
      archivo_4: '',
      archivo_5: '',
+     promocion: '',
      toLowerCase: function (): void {
        throw new Error('Function not implemented.');
      }
@@ -55,7 +56,43 @@ export class HomeProductosComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.updateProduct = false;
     this.cargarProductos();
+    this.inicializar();
+  }
+
+  registrarProducto() {
+    this.service
+      .postRegister({
+        descripcion: this.descripcion,
+        precio: this.precio,
+        archivo_1: this.archivo_1,
+        archivo_2: this.archivo_2,
+        archivo_3: this.archivo_3,
+        archivo_4: this.archivo_4,
+        archivo_5: this.archivo_5,
+      })
+      .subscribe(
+        (data: any) => {
+          Swal.fire({
+            title: 'Nuevo Producto',
+            text: `El producto ${this.descripcion} ha sido creado con exito!`,
+            icon: 'success',
+            confirmButtonColor: '#4CAF50',
+          });
+          this.router.navigate(['/admin/home-productos']);
+          this.ngOnInit();
+          this.inicializar();
+        },
+        (err) => {
+          Swal.fire({
+            title: 'Error',
+            text: `${err.error.message}`,
+            icon: 'warning',
+            confirmButtonColor: '#4CAF50',
+          });
+        }
+      );
   }
 
   borrarProducto(id: any) {
@@ -166,39 +203,6 @@ export class HomeProductosComponent implements OnInit {
     Swal.fire('No se borro nada', '', 'info');
   }
 
-  registrarProducto() {
-    this.service
-      .postRegister({
-        descripcion: this.descripcion,
-        precio: this.precio,
-        archivo_1: this.archivo_1,
-        archivo_2: this.archivo_2,
-        archivo_3: this.archivo_3,
-        archivo_4: this.archivo_4,
-        archivo_5: this.archivo_5,
-      })
-      .subscribe(
-        (data: any) => {
-          Swal.fire({
-            title: 'Nuevo Producto',
-            text: `El producto ${this.descripcion} ha sido creado con exito!`,
-            icon: 'success',
-            confirmButtonColor: '#4CAF50',
-          });
-          this.router.navigate(['/admin/home-productos']);
-          this.ngOnInit();
-        },
-        (err) => {
-          Swal.fire({
-            title: 'Error',
-            text: `${err.error.message}`,
-            icon: 'warning',
-            confirmButtonColor: '#4CAF50',
-          });
-        }
-      );
-  }
-
   capturarFileOrig(event: any): any {
     const archivoCapturado = event.target.files[0];
     const archivoCapturadoNombre = event.target.files[0].name;
@@ -280,6 +284,17 @@ export class HomeProductosComponent implements OnInit {
         return null;
       }
       return null;
-    });
+  });
+
+  inicializar(){
+    this.descripcion = '';
+    this.precio = 0;
+    this.archivo_1 = '';
+    this.archivo_2 = '';
+    this.archivo_3 = '';
+    this.archivo_4 = '';
+    this.archivo_5 = '';
+    this.updateProduct = false;
+  }
 }
 

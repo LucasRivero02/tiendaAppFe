@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
 .login-page {
   width: 360px;
@@ -9,6 +10,7 @@
   position: relative;
   z-index: 1;
   background: #FFFFFF;
+  background-color:whitesmoke;
   max-width: 360px;
   margin: 0 auto 100px;
   padding: 45px;
@@ -18,7 +20,7 @@
 .form input {
   font-family: 'Send Flowers', cursive;
   outline: 0;
-  background: #f2f2f2;
+  background: #FFFFFF;
   width: 100%;
   border: 0;
   margin: 0 0 15px;
@@ -26,7 +28,12 @@
   box-sizing: border-box;
   font-size: 14px;
 }
-.form button {
+.form .fonts{
+  font-family: Open Sans;
+  font-size:small;
+  color:white;
+}
+/* .form button {
   font-family: 'Send Flowers', cursive;
   text-transform: uppercase;
   outline: 0;
@@ -44,7 +51,7 @@
 }
 .form button:hover,.form button:active,.form button:focus {
   background: #43A047;
-}
+} */
 .form .message {
   margin: 15px 0 0;
   color: #b3b3b3;
@@ -52,7 +59,6 @@
   font-family: 'Send Flowers', cursive;
 }
 .form .message a {
-  color: #4CAF50;
   text-decoration: none;
   font-family: 'Send Flowers', cursive;
 }

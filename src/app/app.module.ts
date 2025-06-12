@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { AuthGuard } from '../app/guards/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -20,6 +21,11 @@ import { ProductosComponent } from './admin/productos/productos.component';
 import { HomeComponent } from './admin/home/home.component';
 import { HomeProductosComponent } from './admin/home-productos/home-productos.component';
 import { UpdateProductosComponent } from './admin/update-productos/update-productos.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+
+registerLocaleData(localeEs, 'es-AR');
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
   { path: 'inicio', component: InicioComponent}, 
@@ -58,7 +64,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     Ng2SearchPipeModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

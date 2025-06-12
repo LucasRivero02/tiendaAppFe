@@ -11,7 +11,7 @@ import swal from 'sweetalert2';
   providedIn: 'root'
 })
 export class LoginService {
-  private urlEndPoint: string = 'http://localhost:3030/api/v1/login/';
+  private urlEndPoint: string = 'https://tiendaappbe.onrender.com/api/v1/login/';
   private httpHeaders = new HttpHeaders({'Content-Type' : 'application/json'})
   constructor(private http: HttpClient, private router: Router) { }
 

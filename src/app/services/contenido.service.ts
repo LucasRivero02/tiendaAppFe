@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ContenidoService {
-  private urlEndPoint: string = 'http://localhost:3030/api/v1/producto/';
+  private urlEndPoint: string = 'https://tiendaappbe.onrender.com/api/v1/producto/';
   private httpHeaders = new HttpHeaders({'Content-Type' : 'application/json'})
   constructor(private http: HttpClient, private router: Router) { }
 

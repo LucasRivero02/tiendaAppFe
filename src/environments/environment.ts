@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://tiendaappbe.onrender.com/api/v1/',
+  baseUrl: 'http://localhost:3030/api/v1/',
   finUrlRegister: 'register',
   finUrlLogin: 'login',
   finUrlAltaProducto: 'producto',

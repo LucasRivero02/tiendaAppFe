@@ -5,4 +5,5 @@ export const environment = {
   finUrlLogin: 'login',
   finUrlAltaProducto: 'producto',
   finUrlBajaProducto: 'producto',
+  finUrlProducto: 'producto',
 };

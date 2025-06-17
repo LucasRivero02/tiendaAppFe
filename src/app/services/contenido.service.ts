@@ -19,4 +19,10 @@ export class ContenidoService {
     let direccion = this.baseUrl + this.finUrlProducto;
     return this.http.get(direccion);
   }
+
+  getProductosPaginados(page: number, limit: number): Observable<any> {
+  const url = `${this.baseUrl}${this.finUrlProducto}/paginated?page=${page}&limit=${limit}`;
+  console.log('URL de productos paginados:', url);
+  return this.http.get<any>(url, { headers: this.httpHeaders });
+}
 }

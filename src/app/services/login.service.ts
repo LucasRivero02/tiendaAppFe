@@ -5,13 +5,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { User } from '../contenido/class/user';
 import swal from 'sweetalert2';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  private urlEndPoint: string = 'https://tiendaappbe.onrender.com/api/v1/login/';
+  private baseUrl: string = environment.baseUrl;
+  private finUrlLogin: string = environment.finUrlLogin;
+  private urlEndPoint = this.baseUrl + this.finUrlLogin;
   private httpHeaders = new HttpHeaders({'Content-Type' : 'application/json'})
   constructor(private http: HttpClient, private router: Router) { }
 

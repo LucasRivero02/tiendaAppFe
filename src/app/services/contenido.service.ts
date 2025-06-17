@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { Productos } from '../contenido/class/productos';
 import { of, Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -8,11 +9,14 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ContenidoService {
-  private urlEndPoint: string = 'https://tiendaappbe.onrender.com/api/v1/producto/';
+  private baseUrl: string = environment.baseUrl;
+  private finUrlProducto: string = environment.finUrlProducto;
+  
   private httpHeaders = new HttpHeaders({'Content-Type' : 'application/json'})
   constructor(private http: HttpClient, private router: Router) { }
 
   getProductos(){
-    return this.http.get(this.urlEndPoint);
+    let direccion = this.baseUrl + this.finUrlProducto;
+    return this.http.get(direccion);
   }
 }
